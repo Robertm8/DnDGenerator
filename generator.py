@@ -5,6 +5,7 @@
 
 import random
 import sqlite3
+import json
 from args import get_args
 
 
@@ -89,4 +90,5 @@ if args.n:
 elif args.s:
     response = generate_stats(args.t)
 
-print(response)
+with open('response.json', 'w') as outfile:
+    json.dump(response, outfile)
