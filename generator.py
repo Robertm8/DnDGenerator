@@ -11,7 +11,8 @@ from args import get_args
 
 def generate_name(length, starting):
     """
-    Generates random fantasy name.
+    Generates random fantasy name by connecting to a database of names and querying based on
+    fields given by the microservice call.
     :param length: int, desired length of name
     :param starting: str, starting letters of name
     :return: fantasy name
@@ -83,7 +84,8 @@ def generate_stats(method):
 
 response = None
 
-# Get requested arguments
+# Get requested arguments. Then runs the correct function based on microservice call.
+# args.n is a name request, args.s is a stats request
 args = get_args()
 if args.n:
     response = generate_name(args.l, args.fl)
